@@ -46,6 +46,12 @@ RUN useradd -r -u 200 -m -c "nexus role account" -d ${NEXUS_DATA} -s /bin/false 
 VOLUME ${NEXUS_DATA}
 
 EXPOSE 8081
+EXPOSE 8443
+#docker registry pull port
+EXPOSE 18443
+#docker push port
+EXPOSE 18444
+
 USER nexus
 WORKDIR /opt/sonatype/nexus
 
