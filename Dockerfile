@@ -41,6 +41,8 @@ RUN sed \
     -e "s|java.io.tmpdir=data/tmp|java.io.tmpdir=${NEXUS_DATA}/tmp|g" \
     -i /opt/sonatype/nexus/bin/nexus.vmoptions
 
+COPY org.sonatype.nexus.cfg /opt/sonatype/nexus/etc/
+
 RUN useradd -r -u 200 -m -c "nexus role account" -d ${NEXUS_DATA} -s /bin/false nexus
 
 VOLUME ${NEXUS_DATA}
